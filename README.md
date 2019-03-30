@@ -1,5 +1,5 @@
 # Be patient. Everything is OK.
-##Usage:
+## Usage:
 1. apt get \<Package\> | grep amd64
 2. ./0_debs_list.sh \<PackageName\>
 3. ./1_debs_download.sh
