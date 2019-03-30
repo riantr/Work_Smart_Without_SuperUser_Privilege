@@ -9,11 +9,21 @@ else
     do
         cat ./installed_debs | grep $i > /dev/null
         if [ $? -eq 0 ]; then
-            echo "You have already catched $i"
+            echo "You have already downloaded $i"
             sed -i '/^'$i'/d' need_to_download 
         fi
     done
-    echo  "There are" ` sed -n '$=' need_to_download ` "packages need to download."
-    sed '=' need_to_download | xargs -n2
-    echo 'need_to_download brewed.'
+    declare -i number=0
+    number=$(sed -n '$=' need_to_download)
+    if [  $number -gt 1 ];then
+        echo  "There are $number packages need to download."
+        sed '=' need_to_download | xargs -n2
+        echo 'file need_to_download brewed.'
+    elif [ $number -eq 1 ];then
+        echo  "There are 1 package need to download."
+        sed '=' need_to_download | xargs -n2
+        echo 'file need_to_download brewed.'
+    else
+        echo "$1 already downloaded."
+    fi
 fi
