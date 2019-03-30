@@ -11,5 +11,8 @@ echo -e "export \033[;41m C_INCLUDE_PATH\033[0m=$DEB_EXTRACT_PATH/usr/include:$C
 read -n 1
 export C_INCLUDE_PATH=$DEB_EXTRACT_PATH/usr/include:$C_INCLUDE_PATH
 echo -e "export \033[;41m CPLUS_INCLUDE_PATH\033[0m=$DEB_EXTRACT_PATH/usr/include:$CPLUS_INCLUDE_PATH"
-read -n -1
+read -n 1
 export CPLUS_INCLUDE_PATH=$DEB_EXTRACT_PATH/usr/include:$CPLUS_INCLUDE_PATH
+echo "------------------------------------------------------------------------------"
+echo -e "If you found it works, your should add those \033[;41m exports\033[0m to your ~/.bashrc file."
+echo "------------------------------------------------------------------------------"
