@@ -1,6 +1,6 @@
 DEB_EXTRACT_PATH=$HOME/opt/apt_deb
 echo "Sometimes there might be some lib/inc outside the default path, you should check it by yourself."
-read -n 1
+read -p "Press any key to continue."
 echo -e "export \033[;41m PATH\033[0m=$DEB_EXTRACT_PATH/usr/bin:$DEB_EXTRACT_PATH/usr/sbin:$PATH"
 read -n 1
 export PATH=$DEB_EXTRACT_PATH/usr/bin:$DEB_EXTRACT_PATH/usr/sbin:$PATH
