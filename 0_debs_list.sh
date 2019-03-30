@@ -7,10 +7,13 @@ else
     echo $1 >> need_to_download
     for i in $(<need_to_download)
     do
-        cat ./installed_debs | grep $i>/dev/null
+        cat ./installed_debs | grep $i > /dev/null
+        if [ $? -eq 0 ]; then
             echo "You have already catched $i"
             sed -i '/^'$i'/d' need_to_download 
+        fi
     done
+    echo  "There are" ` sed -n '$=' need_to_download ` "packages need to download."
     sed '=' need_to_download | xargs -n2
     echo 'need_to_download brewed.'
 fi
