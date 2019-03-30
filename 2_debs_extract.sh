@@ -8,4 +8,4 @@ done
 rm debs
 echo "You have installed following debs."
 sed '=' installed_debs |xargs -n2
-echo "DONE!"
+echo "Toast!"
