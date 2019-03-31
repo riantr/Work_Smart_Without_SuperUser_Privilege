@@ -4,7 +4,7 @@ if [ -f need_to_download ]; then
 	do
 	    apt-get download $i
 		dpkg -X $(ls *.deb) $HOME/opt/apt_deb
-           	ls *.deb |xargs -n1 |sed 's/deb/deb\t:\tinstalled/g'|xargs echo -e $i'\t' >> installed_debs
+           	ls *.deb |xargs -n1 |sed 's/deb/deb\t:\t[extracted]/g'|xargs echo -e $i'[packageName]\t' >> extracted_debs
 		rm *.deb
 		echo -e '\033[;41m' $i' extracted to '$HOME'/opt/apt_deb.\033[0m\n'
 	done

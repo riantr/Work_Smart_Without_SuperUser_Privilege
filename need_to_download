@@ -1,0 +1,8 @@
+ vim-common
+ vim-runtime
+ libacl1
+ libc6
+ libgpm2
+ libpython3.6
+ libselinux1
+ libtinfo5

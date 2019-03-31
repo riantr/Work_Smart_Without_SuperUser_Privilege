@@ -9,8 +9,8 @@ else
 		fi
     for i in $(<need_to_download)
     do
-	if [ -f ./installed_debs ]; then
-		cat ./installed_debs | grep $i > /dev/null
+	if [ -f ./extracted_debs ]; then
+		cut -f 1 extracted_debs | grep  $i"\[" > /dev/null 
 		if [ $? -eq 0 ]; then
 		    echo "You have already downloaded $i"
 		    sed -i '/^'$i'/d' need_to_download 

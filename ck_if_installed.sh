@@ -1,2 +1,2 @@
 #!/bin/bash
-ag $1 installed_debs
+ag $1 extracted_debs
