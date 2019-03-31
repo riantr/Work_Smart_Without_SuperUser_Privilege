@@ -1,17 +1,21 @@
 #!/bin/bash
 if [ -z $1 ];then
-    echo 'apt search <Package> | grep amd64'
+    echo 'apt search <Package> | grep "amd64 \| all"'
     echo 'usage: 0_debs_list <packageName>'
 else 
-    aptitude show $1 |grep Depends: |sed 's/^Depends://g'|sed ':a;s/,/\n/g;s/|/\n/g'|sed 's/(.*//g'|sed /^$/d | xargs -n1 > need_to_download
-    echo $1 >> need_to_download
+		apt-cache depends $1 |grep Depends: | xargs -n2| sed 's/Depends://g' > need_to_download
+		if [ $? -eq 0 ];then
+		    echo $1 >> need_to_download
+		fi
     for i in $(<need_to_download)
     do
-        cat ./installed_debs | grep $i > /dev/null
-        if [ $? -eq 0 ]; then
-            echo "You have already downloaded $i"
-            sed -i '/^'$i'/d' need_to_download 
-        fi
+	if [ -f ./installed_debs ]; then
+		cat ./installed_debs | grep $i > /dev/null
+		if [ $? -eq 0 ]; then
+		    echo "You have already downloaded $i"
+		    sed -i '/^'$i'/d' need_to_download 
+		fi
+	fi
     done
     declare -i number=0
     number=$(sed -n '$=' need_to_download)
