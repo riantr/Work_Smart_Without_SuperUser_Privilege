@@ -9,6 +9,8 @@ if [ -f need_to_download ]; then
 		echo -e '\033[;41m' $i' extracted to '$HOME'/opt/apt_deb.\033[0m\n'
 	done
 	rm need_to_download
+	Echo 'In your $HOME/opt/apt_deb/usr/bin burried those gems.'
+	ls ~/opt/apt_deb/usr/bin -F --full-time | sed 's/ubuntu//g;/^total/d;s/.000000000\s+0000//g' | xargs -n3| cut -f 3
 else
     echo -e "Please DO \033[;44m ./0_debs_list.sh \033[0m first."
 fi
