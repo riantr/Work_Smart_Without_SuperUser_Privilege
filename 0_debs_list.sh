@@ -3,10 +3,12 @@ if [ -z $1 ];then
     echo 'apt search <Package> | grep "amd64 \| all"'
     echo 'usage: 0_debs_list <packageName>'
 else 
-		apt-cache depends $1 |grep Depends: | xargs -n2| sed 's/Depends://g' | xargs -n1 > need_to_download
+		apt-cache depends $1 > tmp 
 		if [ $? -eq 0 ];then
 		    echo $1 >> need_to_download
 		fi
+        grep Depends: tmp | xargs -n2| sed 's/Depends://g' | xargs -n1 > need_to_download
+        sed -i '/^$/d' need_to_download 
     for i in $(<need_to_download)
     do
 	if [ -f ./extracted_debs ]; then
@@ -28,6 +30,7 @@ else
         sed '=' need_to_download | xargs -n2
         echo 'file need_to_download brewed.'
     else
-        echo "$1 don't need to download."
+        rm need_to_download
+        echo "Nothing will download."
     fi
 fi
