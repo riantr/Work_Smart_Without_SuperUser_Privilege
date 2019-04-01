@@ -1,5 +1,6 @@
 #!/bin/bash
 if [ -f need_to_download ]; then
+    echo --------------- $(date) ----------------- >> extracted_debs
     for i in $(<need_to_download);
 	do
 	    apt-get download $i
@@ -9,6 +10,7 @@ if [ -f need_to_download ]; then
 		echo -e '\033[;41m' $i' extracted to '$HOME'/opt/apt_deb.\033[0m\n'
 	done
 	rm need_to_download
+    echo ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >> extracted_debs
     cat extracted_debs
 else
     echo -e "Please DO \033[;44m ./0_debs_list.sh \033[0m first."
