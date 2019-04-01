@@ -1,4 +1,5 @@
 #!/bin/bash
+[ ! -d $HOME/opt/apt_deb ] && mkdir -p $HOME/opt/apt_deb
 if [ -f need_to_download ]; then
     echo --------------- $(date) ----------------- >> extracted_debs
     [ ! -d backup ] && mkdir backup
