@@ -3,16 +3,13 @@ echo "Sometimes there might be some lib/inc outside the default path, you should
 read -p "Press Enter to continue."
 echo -e "export \033[;41m PATH\033[0m=$DEB_EXTRACT_PATH/usr/bin:$DEB_EXTRACT_PATH/usr/sbin:$PATH"
 read -n 1
-export PATH=$DEB_EXTRACT_PATH/usr/bin:$DEB_EXTRACT_PATH/usr/sbin:$PATH
 echo -e "export \033[;41m LD_LIBRARY_PATH\033[0m=$DEB_EXTRACT_PATH/lib/x86_64-linux-gnu:$DEB_EXTRACT_PATH/lib:$DEB_EXTRACT_PATH/lib64:$DEB_EXTRACT_PATH/usr/lib:$DEB_EXTRACT_PATH/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH"
 read -n 1
-export LD_LIBRARY_PATH=$DEB_EXTRACT_PATH/lib/x86_64-linux-gnu:$DEB_EXTRACT_PATH/lib:$DEB_EXTRACT_PATH/lib64:$DEB_EXTRACT_PATH/usr/lib:$DEB_EXTRACT_PATH/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 echo -e "export \033[;41m C_INCLUDE_PATH\033[0m=$DEB_EXTRACT_PATH/usr/include:$C_INCLUDE_PATH"
 read -n 1
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:$DEB_EXTRACT_PATH/usr/include
 echo -e "export \033[;41m CPLUS_INCLUDE_PATH\033[0m=$DEB_EXTRACT_PATH/usr/include:$CPLUS_INCLUDE_PATH"
 read -n 1
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$DEB_EXTRACT_PATH/usr/include
 echo "------------------------------------------------------------------------------"
-echo -e "If you found it works, your should add those \033[;41m exports\033[0m to your ~/.bashrc file."
+echo -e "You should [\033[;41msource profile.apt_deb\033[0m] before build your program."
+echo -e "If you found it works, your should [\033[;41mcat profile.apt_deb >> ~/.profile && source ~/.profile\033[0m]. "
 echo "------------------------------------------------------------------------------"
