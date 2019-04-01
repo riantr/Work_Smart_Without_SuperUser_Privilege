@@ -3,7 +3,7 @@ declare -x  LS_COLORS="$LS_COLORS:*.$(whoami)=00;41"
 echo -e "\tFor example, now I touch a file called [test.$(whoami)]."
 touch test.$(whoami)
 read -n 1
-echo -e "\tAnd now I 'ls' it."
+echo -e "\tAnd now 'ls' it."
 read -n 1
 ls --color=auto
 echo -e "\n\tYou got it?" 
