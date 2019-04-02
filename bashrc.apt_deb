@@ -1,0 +1,4 @@
+export PATH=$HOME/opt/apt_deb/usr/bin:$HOME/opt/apt_deb/usr/sbin:$PATH
+export LD_LIBRARY_PATH=$HOME/opt/apt_deb/lib/x86_64-linux-gnu:$HOME/opt/apt_deb/lib:$HOME/opt/apt_deb/lib64:$HOME/opt/apt_deb/usr/lib:$HOME/opt/apt_deb/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/lib64
+export C_INCLUDE_PATH=$HOME/opt/apt_deb/usr/include:/usr/include
+export CPLUS_INCLUDE_PATH=$HOME/opt/apt_deb/usr/include:/usr/include
