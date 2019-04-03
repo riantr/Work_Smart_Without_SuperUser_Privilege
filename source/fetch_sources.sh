@@ -6,6 +6,8 @@ elif [ "$1" = "downloaded_bins" ];then
     for i in $(<../log/downloaded_bins.log)
         do
         apt-get source $i
+        sed -i "/$i/d" ../log/downloaded_bins.log
+        echo $i >> ../log/downloaded_source.log
         done
 elif [ "$1" = "clean" ];then
     ls -l | grep -v ".sh" | sed '/^d/d;/^total/d'|xargs -n9|cut -d ' ' -f 9 | tee list >> /dev/null
@@ -21,7 +23,7 @@ elif [ "$1" = "rm" ];then
         do
         rm -rf $i
         done
-    rm list
+    [ -f list ] && rm list
 else
     apt-get source $1
 fi
