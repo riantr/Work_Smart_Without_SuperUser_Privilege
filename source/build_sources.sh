@@ -10,7 +10,7 @@ for i in $(<list)
         if [ -f configure ];then
 #[ ! -d build ] && mkdir build
 #cd build
-            echo "You are going to configure Makefile for build $i"
+            echo "You are going to build $i"
 #read -p "input your special setup:" SETUP
 #../configure --prefix=$HOME/.local $SETUP 1>$i.out.configure 2>$i.err.configure
             ./configure 1>out.$iconfigure 2>err.$i.configure
@@ -21,9 +21,9 @@ for i in $(<list)
                 echo -e "\033[;41m$i\033[0m\t`cat err.$i.configure`\n" >> /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/error_autobuilding.log
             else 
                 make -j21
-                echo make check
+                make check
                 echo make install
-                echo you have autobuild $i
+                echo Congratulate, you have autobuild $i
                 sed -i "/^$i/d" ../log/downloaded_bins.log
                 echo $i >> ../log/build_bins.log
                 echo -e "\033[;41m$i\033[0m\t`cat out.$i.configure`\n" >> /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/out_autobuilding.log
@@ -41,5 +41,5 @@ for i in $(<list)
 echo DONE!
 rm list
 
-cat /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/error_autobuilding.log 
-rm  /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/error_autobuilding.log 
+cat /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/error_autobuilding.log 
+rm  /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/error_autobuilding.log 
