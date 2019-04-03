@@ -1,1 +1,1 @@
-source/make_sources.sh
+source/build_sources.sh

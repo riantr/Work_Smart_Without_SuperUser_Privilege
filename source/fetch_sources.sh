@@ -1,9 +1,9 @@
 #!/bin/bash
 [ -d source ] && cd source
 if [ "$1" = "" ];then
-    echo "Usage:"
-elif [ "$1" = "downloaded_debs" ];then
-    for i in $(<../downloaded_debs)
+    echo -e "\tUsage:\n\t./catch_sources.sh downloaded_bins\n\t./catch_sources.sh clean\n\t./catch_sources.sh rm\n\t./catch_sources.sh <PackageName>\n "
+elif [ "$1" = "downloaded_bins" ];then
+    for i in $(<../log/downloaded_bins.log)
         do
         apt-get source $i
         done

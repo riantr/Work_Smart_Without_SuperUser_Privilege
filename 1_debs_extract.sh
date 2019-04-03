@@ -1,21 +1,24 @@
 #!/bin/bash
+[ ! -d log ] && mkdir log
 [ ! -d $HOME/opt/apt_deb ] && mkdir -p $HOME/opt/apt_deb
-if [ -f need_to_download ]; then
-    echo --------------- $(date) ----------------- >> extracted_debs
+if [ -f log/need_to_download.log ]; then
+    echo --------------- $(date) ----------------- >> log/extracted_debs.log
     [ ! -d backup ] && mkdir backup
-    for i in $(<need_to_download);
+    for i in $(<log/need_to_download.log);
 	do
 	    apt-get download $i
-        echo $i >> downloaded_debs
-        ls *.deb >> debs
+        echo $i >> log/downloaded_debs.log
+        ls *.deb >> log/deb_file_names.log
 		dpkg -X $(ls *.deb) $HOME/opt/apt_deb
-        echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> extracted_debs
+        echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> log/extracted_debs.log
+        ls $HOME/opt/apt_deb/usr/bin |grep $i>>/dev/null
+        [ "$?" = "0" ] && echo $i >> log/downloaded_bins.log
 		mv *.deb ./backup
 		echo -e '\033[;41m' $i' extracted to '$HOME'/opt/apt_deb.\033[0m\n'
 	done
-	rm need_to_download
-    echo ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >> extracted_debs
-    cat extracted_debs
+	rm log/need_to_download.log
+    echo ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >> log/extracted_debs.log
+    cat log/extracted_debs.log
 else
     echo -e "Please DO \033[;44m ./0_debs_list.sh \033[0m first."
 fi
