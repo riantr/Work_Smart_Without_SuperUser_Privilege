@@ -6,6 +6,7 @@ if [ -f need_to_download ]; then
     for i in $(<need_to_download);
 	do
 	    apt-get download $i
+        echo $i >> downloaded_debs
         ls *.deb >> debs
 		dpkg -X $(ls *.deb) $HOME/opt/apt_deb
         echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> extracted_debs

@@ -3,12 +3,12 @@ if [ -z $1 ];then
     echo 'apt search <Package> | grep "amd64 \| all"'
     echo 'usage: ./0_debs_list <packageName>'
 else 
-		apt-cache depends $1 | grep Depends > tmp 
+		apt-cache depends $1 | grep Depends > temp.txt 
 		if [ $? -eq 0 ];then
 		    echo $1 > need_to_download
 		fi
-        grep Depends: tmp | xargs -n2| sed 's/Depends://g' | xargs -n1 >> need_to_download
-        rm tmp
+        grep Depends: temp.txt | xargs -n2| sed 's/Depends://g' | xargs -n1 >> need_to_download
+        rm temp.txt
         sed -i '/^$/d' need_to_download 
     for i in $(<need_to_download)
     do

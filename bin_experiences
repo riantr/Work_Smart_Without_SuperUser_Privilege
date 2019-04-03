@@ -1,0 +1,2 @@
+chromium-browser    [bin:$HOME/opt/apt_deb/bin/chromium-browser]    [*54*]  LIBDIR=/usr/lib/chromium-browser    LIBDIR=$HOME/opt/apt_deb/usr/lib/chromium-browser *|*
+vim		[cmd:export VIMRUNTIME=$HOME/opt/apt_deb/usr/share/vim/vim80/]
