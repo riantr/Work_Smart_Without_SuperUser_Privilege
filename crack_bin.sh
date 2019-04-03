@@ -4,3 +4,4 @@ chromium-browser)
 ;;
 esac
 
+ag preix= ~/opt/apt_deb/usr/bin | grep "/usr/"
