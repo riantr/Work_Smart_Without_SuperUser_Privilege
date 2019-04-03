@@ -24,8 +24,8 @@ for i in $(<list)
                 make check
                 echo make install
                 echo Congratulate, you have autobuild $i
-                sed -i "/^$i/d" ../log/downloaded_bins.log
-                echo $i >> ../log/build_bins.log
+                sed -i "/^$i/d" ../../log/downloaded_bins.log
+                echo $i >> ../../log/build_bins.log
                 echo -e "\033[;41m$i\033[0m\t`cat out.$i.configure`\n" >> /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/out_autobuilding.log
             fi
         else 
@@ -41,5 +41,3 @@ for i in $(<list)
 echo DONE!
 rm list
 
-cat /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/error_autobuilding.log 
-rm  /home/renyongxiang/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/log/error_autobuilding.log 
