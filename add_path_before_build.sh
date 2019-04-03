@@ -1,3 +1,4 @@
+#!/bin/bash
 DEB_EXTRACT_PATH=$HOME/opt/apt_deb
 echo "Sometimes there might be some lib/inc outside the default path, you should check it by yourself."
 read -p "Press Enter to continue."

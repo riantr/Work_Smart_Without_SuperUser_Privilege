@@ -1,3 +1,4 @@
+#!/bin/bash
 echo -e "\tSuppose your special file extension is .$(whoami), this little script will help you to make it looks sharp."
 declare -x  LS_COLORS="$LS_COLORS:*.$(whoami)=00;41"
 echo -e "\tFor example, now I touch a file called [test.$(whoami)]."
