@@ -1,4 +1,6 @@
 #!/bin/bash
+echo Only 3 levels support.
+echo Bug exists, if you got \"Nothing will be download.\", you\'d better re-do your command again. 
 [ ! -d log ] && mkdir log
 if [ -z $1 ];then
     echo 'apt search <Package> | grep "amd64 \| all"'
@@ -9,8 +11,23 @@ else
 		    echo $1 > log/need_to_download.log
 		fi
         grep Depends: log/temp.log | xargs -n2| sed 's/Depends://g' | xargs -n1 >> log/need_to_download.log
-        rm log/temp.log
-        sed -i '/^$/d' log/need_to_download.log 
+        sed -i '/^$/d;/^</d;/^|/d' log/need_to_download.log 
+        if [ "$2" -ge "2" ];then
+            for i in $(<log/need_to_download.log)
+            do 
+                apt-cache depends $i | grep Depends > log/temp.L2.log
+                grep Depends: log/temp.L2.log | xargs -n2| sed 's/Depends://g' | xargs -n1 >> log/need_to_download.log
+                sed -i '/^$/d;/^</d;/^|/d' log/need_to_download.log 
+            done
+            if [ "$2" = "3" ];then
+                for j in $(<log/need_to_download.log)
+                do 
+                    apt-cache depends $j | grep Depends > log/temp.L3.log
+                    grep Depends: log/temp.L3.log | xargs -n2| sed 's/Depends://g' | xargs -n1 >> log/need_to_download.log
+                    sed -i '/^$/d;/^</d;/^|/d' log/need_to_download.log 
+                done
+            fi
+        fi
     for i in $(<log/need_to_download.log)
     do
 	if [ -f log/extracted_debs.log ]; then
@@ -22,6 +39,10 @@ else
 	fi
     done
     sed -i '/|/d' log/need_to_download.log
+    sort log/need_to_download.log | uniq|tee log/need_to_download.log 
+        rm log/temp.log
+        [ -f log/temp.L2.log ] && rm log/temp.L2.log
+        [ -f log/temp.L3.log ] && rm log/temp.L3.log
     declare -i number=0
     number=$(sed -n '$=' log/need_to_download.log)
     if [  $number -gt 1 ];then
@@ -33,6 +54,7 @@ else
         sed '=' log/need_to_download.log | xargs -n2
         echo 'file need_to_download.log brewed.'
     else
+        echo $number
         rm log/need_to_download.log
         echo "Nothing will be download."
     fi
