@@ -1,5 +1,6 @@
 #!/bin/bash
 [ ! -d log ] && mkdir log
+chmod 775 log
 if [ -z $1 ];then
     echo 'apt search <Package> | grep "amd64 \| all"'
     echo 'usage: ./0_debs_list <packageName>'
@@ -37,3 +38,4 @@ else
         echo "Nothing will be download."
     fi
 fi
+chmod 444 log

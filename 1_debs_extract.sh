@@ -1,5 +1,6 @@
 #!/bin/bash
 [ ! -d log ] && mkdir log
+chmod 775 log
 [ ! -d $HOME/opt/apt_deb ] && mkdir -p $HOME/opt/apt_deb
 if [ -f log/need_to_download.log ]; then
     echo --------------- $(date) ----------------- >> log/extracted_debs.log
@@ -26,3 +27,4 @@ if [ -f log/need_to_download.log ]; then
 else
     echo -e "Please DO \033[;44m ./0_debs_list.sh \033[0m first."
 fi
+chmod 444 log
