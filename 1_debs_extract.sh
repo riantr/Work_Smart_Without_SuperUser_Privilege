@@ -10,7 +10,7 @@ if [ -f log/need_to_download.log ]; then
         echo $i >> log/downloaded_debs.log
         ls *.deb >> log/deb_file_names.log
 		dpkg -X $(ls *.deb) $HOME/opt/apt_deb
-        echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> log/extracted_debs.log
+        echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i; ls $HOME/opt/apt_deb/bin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> log/extracted_debs.log
         ls $HOME/opt/apt_deb/usr/bin |grep $i>>/dev/null
         [ "$?" = "0" ] && echo $i >> log/downloaded_bins.log
 		mv *.deb ./backup
@@ -18,7 +18,7 @@ if [ -f log/need_to_download.log ]; then
 	done
 	rm log/need_to_download.log
     echo ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >> log/extracted_debs.log
-    cat log/extracted_debs.log | tail -n 40
+    cat log/extracted_debs.log | tail -n 10
 else
     echo -e "Please DO \033[;44m ./0_debs_list.sh \033[0m first."
 fi
