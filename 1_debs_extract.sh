@@ -18,7 +18,7 @@ if [ -f log/need_to_download.log ]; then
 	done
 	rm log/need_to_download.log
     echo ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >> log/extracted_debs.log
-    cat log/extracted_debs.log
+    cat log/extracted_debs.log | tail -n 40
 else
     echo -e "Please DO \033[;44m ./0_debs_list.sh \033[0m first."
 fi
