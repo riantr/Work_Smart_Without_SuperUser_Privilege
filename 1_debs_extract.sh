@@ -10,8 +10,12 @@ if [ -f log/need_to_download.log ]; then
         echo $i >> log/downloaded_debs.log
         ls *.deb >> log/deb_file_names.log
 		dpkg -X $(ls *.deb) $HOME/opt/apt_deb
-        echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i; ls $HOME/opt/apt_deb/bin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> log/extracted_debs.log
+        echo -e '\t[bin:\t\033[;44m' $(ls $HOME/opt/apt_deb/usr/bin |grep $i;ls $HOME/opt/apt_deb/bin |grep $i | ls $HOME/opt/apt_deb/sbin |grep $i)'\033[0m]' | xargs echo $(ls *.deb |xargs -n1 |sed 's/deb/deb[extracted]/g')|xargs echo -e $i'['$(date -d "20181101" +"%Y-%m-%d")']\t' >> log/extracted_debs.log
         ls $HOME/opt/apt_deb/usr/bin |grep $i>>/dev/null
+        [ "$?" = "0" ] && echo $i >> log/downloaded_bins.log
+        ls $HOME/opt/apt_deb/bin |grep $i>>/dev/null
+        [ "$?" = "0" ] && echo $i >> log/downloaded_bins.log
+        ls $HOME/opt/apt_deb/sbin |grep $i>>/dev/null
         [ "$?" = "0" ] && echo $i >> log/downloaded_bins.log
 		mv *.deb ./backup
 		echo -e '\033[;41m' $i' extracted to '$HOME'/opt/apt_deb.\033[0m\n'
