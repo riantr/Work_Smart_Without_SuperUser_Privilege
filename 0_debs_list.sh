@@ -21,7 +21,7 @@ else
 		fi
 	fi
     done
-    sed -i '/|/d' log/need_to_download.log
+    sed -i '/|/d;/^</d' log/need_to_download.log
     declare -i number=0
     number=$(sed -n '$=' log/need_to_download.log)
     if [  $number -gt 1 ];then
