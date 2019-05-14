@@ -1,4 +1,5 @@
 HEXO_HOME=~/work/hexo
+HEXO_TOOLS_HOME=`pwd`
 #npm install hexo-cli
 cd ~/work
 rm -rf ~/work/hexo
@@ -53,14 +54,16 @@ sed -i 's/#tags:/tags:/' themes/next/_config.yml
 sed -i 's/#categories:/categories:/' themes/next/_config.yml
 sed -i 's/#Title:/Title:/' themes/next/_config.yml
 sed -i '/motion:/{n;s/true/false/;}' themes/next/_config.yml
-mv $HEXO_HOME/themes/next/source/css $HEXO_HOME/source/
-mv $HEXO_HOME/themes/next/source/fonts $HEXO_HOME/source/
-mv $HEXO_HOME/themes/next/source/images $HEXO_HOME/source/
-mv $HEXO_HOME/themes/next/source/js $HEXO_HOME/source/
-mv $HEXO_HOME/themes/next/source/lib $HEXO_HOME/source/
+#mv $HEXO_HOME/themes/next/source/css $HEXO_HOME/source/
+#mv $HEXO_HOME/themes/next/source/fonts $HEXO_HOME/source/
+#mv $HEXO_HOME/themes/next/source/images $HEXO_HOME/source/
+#mv $HEXO_HOME/themes/next/source/js $HEXO_HOME/source/
+#mv $HEXO_HOME/themes/next/source/lib $HEXO_HOME/source/
 rm -rf $HEXO_HOME/themes/next/source
+rm -rf $HEXO_HOME/source
+cp -r $HEXO_TOOLS_HOME/source $HEXO_HOME
 ln -s $HEXO_HOME/source $HEXO_HOME/themes/next/source
-cp ~/src/shell/1.Work_Smart_Without_SuperUser_Privilege_github/hexo* $HEXO_HOME
+cp $HEXO_TOOLS_HOME/hexo* $HEXO_HOME
 hexo g
 hexo s -i 172.16.18.16 -p 8080
 #hexo clean && hexo g && hexo d
