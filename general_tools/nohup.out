@@ -1,0 +1,48 @@
+Xlib:  extension "XInputExtension" missing on display ":4".
+Fontconfig warning: "/etc/fonts/fonts.conf", line 146: blank doesn't take any effect anymore. please remove it from your fonts.conf
+Xlib:  extension "XInputExtension" missing on display ":4".
+Xlib:  extension "XInputExtension" missing on display ":4".
+[22629:22676:0425/142220.528406:ERROR:bus.cc(394)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22629:22652:0425/142220.528517:ERROR:in_progress_cache_impl.cc(93)] Could not read download entries from file because there was a read failure.
+Xlib:  extension "XInputExtension" missing on display ":4".
+[22683:22683:0425/142220.582671:ERROR:gl_surface_glx.cc(428)] GLX 1.3 or later is required.
+[22683:22683:0425/142220.582704:ERROR:gl_initializer_x11.cc(157)] GLSurfaceGLX::InitializeOneOff failed.
+[22683:22683:0425/142220.584522:ERROR:viz_main_impl.cc(197)] Exiting GPU process due to errors during initialization
+[22629:22665:0425/142220.585395:ERROR:service_manager_context.cc(252)] Attempting to run unsupported native service: /home/renyongxiang/opt/apt_deb/usr/lib/chromium-browser/content_gpu.service
+
+(chromium-browser:22629): LIBDBUSMENU-GLIB-WARNING **: Unable to get session bus: Unknown or unsupported transport 'disabled' for address 'disabled:'
+Xlib:  extension "XInputExtension" missing on display ":4".
+[22714:22714:0425/142220.639296:ERROR:gl_surface_glx.cc(428)] GLX 1.3 or later is required.
+[22714:22714:0425/142220.639328:ERROR:gl_initializer_x11.cc(157)] GLSurfaceGLX::InitializeOneOff failed.
+[22714:22714:0425/142220.641796:ERROR:viz_main_impl.cc(197)] Exiting GPU process due to errors during initialization
+[22629:22665:0425/142220.642764:ERROR:service_manager_context.cc(252)] Attempting to run unsupported native service: /home/renyongxiang/opt/apt_deb/usr/lib/chromium-browser/content_gpu.service
+Xlib:  extension "XInputExtension" missing on display ":4".
+[22629:22629:0425/142220.703225:ERROR:gpu_process_transport_factory.cc(1019)] Lost UI shared context.
+[1:10:0425/142220.708863:ERROR:command_buffer_proxy_impl.cc(133)] ContextResult::kTransientFailure: Failed to send GpuChannelMsg_CreateCommandBuffer.
+[22629:22629:0425/142222.156977:ERROR:navigation_entry_screenshot_manager.cc(135)] Invalid entry with unique id: 1
+[22629:22629:0425/142238.249222:ERROR:gtk_key_bindings_handler.cc(125)] Not implemented reached in void libgtkui::Gtk2KeyBindingsHandler::BuildGdkEventKeyFromXEvent(const base::NativeEvent &, GdkEventKey *)
+[22629:22665:0425/142400.233491:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142400.613549:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142428.240469:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142428.615885:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142433.876316:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142434.615745:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142448.023579:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142448.614046:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142506.929214:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142507.614988:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/142619.272392:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/144027.203518:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/144027.615273:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/144255.681129:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22629:0425/160019.719965:ERROR:navigation_entry_screenshot_manager.cc(135)] Invalid entry with unique id: 42
+[22629:22665:0425/160624.302612:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22629:0425/160639.237621:ERROR:navigation_entry_screenshot_manager.cc(135)] Invalid entry with unique id: 48
+[22629:22665:0425/160642.448173:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/160650.953251:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/160654.115449:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/160656.125802:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/160659.987227:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22665:0425/160710.786135:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
+[22629:22629:0425/162205.917909:ERROR:navigation_entry_screenshot_manager.cc(135)] Invalid entry with unique id: 83
+[22629:22665:0425/162208.194520:ERROR:upload_data_presenter.cc(73)] Not implemented reached in virtual void extensions::RawDataPresenter::FeedNext(const net::UploadElementReader &)
