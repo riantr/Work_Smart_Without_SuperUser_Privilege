@@ -39,7 +39,7 @@ cp ~/work/hexo.bak.2/source/tags/index.md $HEXO_HOME/source/tags/index.md
 #    format: html
 #    limit: 10000
 sed -i 's/landscape/next/g' _config.yml
-sed -i '$a\nsearch:\n    path: search.xml\n    field: post\n    format: html\n    limit: 10000\n' _config.yml
+sed -i '$asearch:\n    path: search.xml\n    field: post\n    format: html\n    limit: 10000\n' _config.yml
 #local_search:
 #    enable:true
 #menu:
@@ -54,15 +54,10 @@ sed -i 's/#tags:/tags:/' themes/next/_config.yml
 sed -i 's/#categories:/categories:/' themes/next/_config.yml
 sed -i 's/#Title:/Title:/' themes/next/_config.yml
 sed -i '/motion:/{n;s/true/false/;}' themes/next/_config.yml
-#mv $HEXO_HOME/themes/next/source/css $HEXO_HOME/source/
-#mv $HEXO_HOME/themes/next/source/fonts $HEXO_HOME/source/
 #mv $HEXO_HOME/themes/next/source/images $HEXO_HOME/source/
-#mv $HEXO_HOME/themes/next/source/js $HEXO_HOME/source/
-#mv $HEXO_HOME/themes/next/source/lib $HEXO_HOME/source/
-rm -rf $HEXO_HOME/themes/next/source
-rm -rf $HEXO_HOME/source
-cp -r $HEXO_TOOLS_HOME/source $HEXO_HOME
-ln -s $HEXO_HOME/source $HEXO_HOME/themes/next/source
+cp $HEXO_HOME/themes/freemind/source/images/*.* $HEXO_HOME/source/images
+rm -r $HEXO_HOME/themes/freemind/source/images
+ln -s $HEXO_HOME/source/images $HEXO_HOME/themes/next/source/images
 cp $HEXO_TOOLS_HOME/hexo* $HEXO_HOME
 hexo g
 hexo s -i 172.16.18.16 -p 8080
